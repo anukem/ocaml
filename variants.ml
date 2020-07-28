@@ -44,3 +44,8 @@ let rec same_shape t1 t2 =
   | Node (_, l1, r1), Node (_,l2, r2) -> (same_shape l1 l2) = true && (same_shape r1 r2) = true
   | Leaf, Leaf -> true
   | _, _ -> false
+
+let rec int_max int_list =
+  match int_list with 
+  | [] -> failwith "int_max failure"
+  | h::tl -> max h (int_max tl)
