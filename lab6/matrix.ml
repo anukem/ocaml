@@ -18,8 +18,12 @@ let nth_column n m = List.map (fun x -> List.nth x n) m
 let indicies lst = List.init ((List.length (List.hd lst))) (fun x -> x)
 
 let matrix_multiplication m1 m2 =
-  if List.length (List.hd m1) <> List.length m2
-  then failwith "bad dimensions for the vectors"
-  else let get_row index = indicies m2 |> List.map (fun z -> nth_column z m2) |> List.map (fun x -> dot_product x (List.nth m1 index)) in
-List.init (List.length m1) (fun x -> x) |> List.map get_row
-
+  if List.length (List.hd m1) <> List.length m2 then
+    failwith "bad dimensions for the vectors"
+  else
+    let get_row index =
+      indicies m2
+      |> List.map (fun z -> nth_column z m2)
+      |> List.map (fun x -> dot_product x (List.nth m1 index))
+    in
+    List.init (List.length m1) (fun x -> x) |> List.map get_row
