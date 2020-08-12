@@ -1,11 +1,10 @@
-let is_empty_matrix m = List.map List.length m |> List.exists (fun x -> x = 0) |> not
+let is_not_empty_matrix m = List.map List.length m |> List.exists (fun x -> x = 0) |> not
 
 let same_length_rows m =
   let int_list = List.map List.length m in
     List.for_all (fun x -> x = (List.hd int_list)) int_list
 
-let is_valid_matrix m = is_empty_matrix m && same_length_rows m
-
+let is_valid_matrix m = is_not_empty_matrix m && same_length_rows m
 
 let add_row_vectors lst1 lst2 = if List.length lst1 <> List.length lst2 then [] else List.map2 (+) lst1 lst2
 
