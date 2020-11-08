@@ -1,9 +1,9 @@
-let bigred lst = 
+let bigred lst =
   match lst with
   | [] -> false
   | h::t -> if h = "bigred" then true else false
 
-let exactlyTwoOrFour lst = 
+let exactlyTwoOrFour lst =
   match lst with
   | [] -> false
   | h::[] -> false
@@ -17,9 +17,9 @@ let firstTwoEqual lst =
   | [] -> false
   | h::[] -> false
   | h::a::t -> h = a
-  
-let fifthElement lst = 
-  match lst with 
+
+let fifthElement lst =
+  match lst with
   | [] -> 0
   | h::t -> if List.length t < 4 then 0 else List.nth t 3
 
@@ -54,7 +54,7 @@ let rec from i j l =
 
 (* returns:  [i -- j] is the list containing the integers from
  *   [i] to [j], inclusive.
- *) 
+ *)
 let (--) i j =
   from i j []
 
